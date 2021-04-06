@@ -1,0 +1,109 @@
+<div class="container">
+  <a *ngIf="isAdmin || isProf" routerLink="/home" class="ajouterBtn">
+    <button mat-flat-button color="primary">
+      Revenir à la liste
+    </button>
+  </a>
+  <div class="test">
+    <h1>Formulaire d'insertion d 'assignments</h1>
+  </div>
+      <form  ngForm #formAssignment class="form" (submit)="onSubmit($event); formAssignment.reset();">
+        
+        <mat-vertical-stepper #stepper>
+          <mat-step [stepControl]="nomFormGroup" errorMessage="Name is required.">
+            <form [formGroup]="nomFormGroup">
+              <ng-template matStepLabel>Nom du devoir</ng-template>
+              <mat-form-field class="form">
+                <mat-label>Nom</mat-label>
+                <input matInput placeholder="ex:Devoir Mopolo" formControlName="nom" required>
+              </mat-form-field>
+              <div>
+                <!--<p>Go to a different step to see the error state</p>-->
+                <button mat-button matStepperNext>Suivant</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="dateFormGroup" errorMessage="Address is required.">
+            <form [formGroup]="dateFormGroup">
+              <ng-template matStepLabel>Date de rendu</ng-template>
+              <mat-form-field appearance="fill" >
+                <mat-label>Choisissez une date</mat-label>
+                <input matInput [matDatepicker]="picker" required formControlName="dateDeRendu">
+            
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Précedent</button>
+                <button mat-button matStepperNext>Suivant</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="matiereFormGroup" errorMessage="Name of matter is required.">
+            <form [formGroup]="matiereFormGroup">
+              <ng-template matStepLabel>Matière</ng-template>
+              <mat-form-field appearance="fill" class="form">
+                <mat-label>---</mat-label>
+                <mat-select formControlName="matiere">
+                  <mat-option *ngFor="let matiere of nomMatiere" [value]="matiere._id+ ','+matiere.prof" >
+                    {{matiere.nom}}
+                   
+                  </mat-option>   
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <!--<p>Go to a different step to see the error state</p>-->
+                <button mat-button matStepperPrevious>Précedent</button>
+                <button mat-button matStepperNext>Suivant</button>
+              </div>
+            </form>
+          </mat-step>
+          <div *ngIf="isAdmin || isProf">
+            <mat-step [stepControl]="eleveFormGroup" errorMessage="Name of matter is required.">
+              <form [formGroup]="eleveFormGroup">
+                <ng-template matStepLabel>Nom Etudiant</ng-template>
+                <mat-form-field appearance="fill" class="form">
+                  <mat-label>Nom Etudiant</mat-label>
+                  <mat-select formControlName="eleve">
+                    <mat-option *ngFor="let eleve of nomEleve" [value]="eleve._id" >
+                      {{eleve.nom}} {{eleve.prenom}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div>
+                  <!--<p>Go to a different step to see the error state</p>-->
+                  <button mat-button matStepperPrevious>Précedent</button>
+                  <button mat-button matStepperNext>Suivant</button>
+                </div>
+              </form>
+            </mat-step>
+          </div>
+          <div *ngIf="isEtudiant">
+            
+              <form [formGroup]="eleveFormGroup">
+              
+               
+                  <input  formControlName="eleve" type="hidden" name="id"  [(ngModel)]="eleveId"/>
+                  
+               
+               
+              </form>
+           
+          </div>
+          
+          
+          <mat-step>
+            <ng-template matStepLabel>Terminer</ng-template>
+            <p>Vous êtes maintenant prêt à inserer</p>
+            <div>
+              <button mat-flat-button color="primary">
+                Ajouter
+              </button>
+              <button class="reset" mat-flat-button color="warn" (click)="stepper.reset()">Réinitialiser</button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </form>
+</div>
+

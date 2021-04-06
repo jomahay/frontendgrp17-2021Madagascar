@@ -1,0 +1,22 @@
+.form {
+  display:flex;
+  flex-direction: column;
+  margin:5px;
+  width: 500px;
+  
+
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top:50px;
+  padding-left:250px;
+}
+.ajouterBtn {
+  align-self: flex-end;
+  
+}
+.reset{
+  margin-left: 10px;
+}

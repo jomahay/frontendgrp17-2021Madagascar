@@ -1,0 +1,44 @@
+.form {
+  display:flex;
+  flex-direction: column;
+  margin:5px;
+  width: 500px;
+  
+
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top:100px;
+  padding-left:300px;
+}
+
+.navBtn {
+  right: 0;
+  margin-top: 50px;
+  position: absolute;
+  top: 0;
+  float: right;
+}
+
+
+#bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.edit{
+  margin-left: 10px;
+}
+
+

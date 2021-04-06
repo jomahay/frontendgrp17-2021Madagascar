@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+    margin-top:50px;
+}
+
+.ajouterBtn {
+  align-self: flex-end;
+  
+}
+
+.example-viewport {
+  height: 600px;
+  width: 100% ;
+ 
+  
+ /*
+  background-color: #4b4276;
+ */
+  
+}
+
+.example-item {
+  height: 50px;
+}
+
+
+:root {
+  --clr-primary: #651fff;
+  --clr-gray: #37474f;
+  --clr-gray-light: #b0bec5;
+}
+
+
+
+
+
+.wrapper-grid {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+
+  
+}
+
+.container-card {
+  box-sizing: border-box;
+  border: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px 0px var(--clr-gray-light);
+  background-color: white;
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.banner-img {
+  position: absolute;
+  
+  height: 10rem;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-img {
+  width: 8rem;
+  clip-path: circle(60px at center);
+  margin-top: 4.5rem;
+}
+
+
+
+.example-card {
+  max-width: 800px;
+  min-width: 500px;
+ 
+ 
+  
+}
+
+.example-header-image {
+ 
+  background-size: cover;
+}
+mat-card{
+  margin-left: -95px;
+  margin-bottom: 15px;
+  
+}
+
+
+

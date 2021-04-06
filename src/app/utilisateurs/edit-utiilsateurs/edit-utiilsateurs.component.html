@@ -1,0 +1,88 @@
+<div class="container">
+    <a routerLink="/utilisateur" class="ajouterBtn" >
+           <button mat-flat-button color="primary">
+             retourner à la liste des  utilisateurs
+           </button>
+         </a>
+    <h1>Modifier un utilisateur</h1>
+
+
+    <form [formGroup]="formGroup" ngForm  #formUtilisateur class="form" >
+
+        <input type="hidden" name="id"  [(ngModel)]="id"/>
+        <input type="hidden" name="image"  [(ngModel)]="image"/>
+        <input type="hidden" name="motDePasse"  [(ngModel)]="motDePasse"/>
+        <input    name="email" [(ngModel)]="email" type="hidden" >
+       
+          <mat-label>Image de l'utilisateur :</mat-label>
+           <div *ngIf="image!=null" style="width:25% ;height:25%;margin-bottom:10px" class="content">
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+              <div  fxFlex.xs="100%" fxFlex.sm="33%" >
+                <mat-card class="mat-elevation-z4">
+                  <img  mat-card-image src="https://backendgrp17mada.herokuapp.com/images/{{image}}">
+                </mat-card>
+              </div>
+            </div>
+           </div>
+           <div *ngIf="image==null" style="width:25% ;height:25%;margin-bottom:10px" class="content">
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+              <div  fxFlex.xs="100%" fxFlex.sm="33%" >
+                <mat-card class="mat-elevation-z4">
+                  <img  mat-card-image src="https://backendgrp17mada.herokuapp.com/images/avatar.jpg">
+                </mat-card>
+              </div>
+            </div>
+           </div>
+        <mat-form-field >
+               <mat-label>Nom</mat-label>
+               <input matInput  [(ngModel)]="nom"  name="nom"
+                       type="text" formControlName="nom"  required>
+        </mat-form-field>
+        <mat-form-field >
+              <mat-label>Prenom</mat-label>
+              <input matInput name="prenom"
+                     [(ngModel)]="prenom" type="text" formControlName="prenom"  required>
+          </mat-form-field>
+           
+           <mat-form-field  appearance="fill">
+                  <mat-label>Selectionner un role</mat-label>
+                  <mat-select [(ngModel)]="role" formControlName="role"   name="role" matNativeControl required >
+                    <div *ngIf="role==rolesAafficher[1] || role==rolesAafficher[2] ">
+                      <mat-option  [value]="rolesAafficher[1]" >
+                        {{rolesAafficher[1]}}
+                      </mat-option>
+                      <mat-option  [value]="rolesAafficher[2]" >
+                        {{rolesAafficher[2]}}
+                      </mat-option>
+                    </div>
+                    <div *ngIf="role==rolesAafficher[0]">
+                      <mat-option  [value]="rolesAafficher[0]" >
+                        {{rolesAafficher[0]}}
+                      </mat-option>
+                    </div>
+                  </mat-select>
+           </mat-form-field>
+                <div>
+                  <mat-label>Selectionner une image</mat-label>
+                  <input accept="image/*" [(ngModel)]="fileToUpload" formControlName="image" required type="file"
+                         id="file"
+                         (change)="handleFileInput($event.target.files)">
+                  
+                </div>
+        
+       
+               <button type="submit" [disabled]="!nom || !prenom || !email || !motDePasse ||
+               !role"  mat-stroked-button color="primary"  (click)="updateUtilisateur()">
+                 Modifier utilisateur
+               </button>
+             
+       
+       </form>
+
+
+
+</div>
+
+
+
+

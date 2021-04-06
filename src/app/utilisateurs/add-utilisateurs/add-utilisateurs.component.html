@@ -1,0 +1,67 @@
+<div class="container">
+    <a routerLink="/utilisateur" class="ajouterBtn" >
+        <button mat-flat-button color="primary">
+          retourner à la liste des  utilisateurs
+        </button>
+      </a>
+ <h1>Ajouter un nouveau utilisateur</h1>
+
+<form [formGroup]="formGroup" ngForm  #formUtilisateur class="form" >
+
+ 
+ <mat-form-field >
+        <mat-label>Nom</mat-label>
+        <input matInput  [(ngModel)]="nom"  name="nom"
+                type="text" formControlName="nom"  required>
+ </mat-form-field>
+ <mat-form-field >
+       <mat-label>Prenom</mat-label>
+       <input matInput name="prenom"
+              [(ngModel)]="prenom" type="text" formControlName="prenom"  required>
+   </mat-form-field>
+   <mat-form-field >
+       <mat-label>Email</mat-label>
+       <input matInput   name="email"
+              [(ngModel)]="email" type="email" formControlName="email" required>
+       <mat-error>{{getErrorEmail()}}</mat-error>
+   </mat-form-field>
+   <br>
+    
+    <mat-form-field  appearance="fill">
+           <mat-label>Selectionner un role</mat-label>
+           <mat-select [(ngModel)]="role" formControlName="role"   name="role" matNativeControl required >
+
+              <mat-option  [value]="rolesAafficher[1]" >
+                     {{rolesAafficher[1]}}
+              </mat-option>
+              <mat-option  [value]="rolesAafficher[2]" >
+                     {{rolesAafficher[2]}}
+              </mat-option>
+
+           </mat-select>
+          
+    </mat-form-field>
+    <mat-form-field >
+       <mat-label>Mot de passe</mat-label>
+       <input matInput  [(ngModel)]="motDePasse"  formControlName="motDePasse"   name="motDePasse"
+               type="password" required>
+   </mat-form-field>
+    <br><br>
+    
+         <div>
+           <mat-label>Selectionner une image</mat-label>
+           <input accept="image/*" [(ngModel)]="fileToUpload" formControlName="image" required type="file"
+                  id="file"
+                  (change)="handleFileInput($event.target.files)">
+           
+           </div>
+ 
+
+        <button type="submit" [disabled]="!nom || !prenom || !email || !motDePasse ||
+        !role ||!fileToUpload"  mat-stroked-button color="primary"  (click)="addUtilisateur()">
+          Ajouter utilisateur
+        </button>
+      
+
+</form>
+</div>

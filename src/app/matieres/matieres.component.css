@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top:50px;
+  }
+  
+  .ajouterBtn {
+    align-self: flex-end;
+    
+  }
+  .imageContainer > img:hover {
+    width: 400px;
+    height: 200px;
+  }
+  .debut{
+    align-self: flex-start;
+  }
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  img {
+    height: auto;
+    max-width: 100%;
+   }
+   
+   .image-table {
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-collapse: separate;
+    border-spacing: 6px;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+   }
+   
+   /* OPTIONAL - Bild mit Rahmen */
+   .image-table img {
+    border: 10px solid #fff;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 10px #999;
+    box-shadow: 0 0 10px #999;
+   }
+
+   .pagination {
+    margin-top: 20px;
+   display: inline-block;
+ }

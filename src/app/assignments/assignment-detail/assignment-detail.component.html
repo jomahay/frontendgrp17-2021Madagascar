@@ -1,0 +1,51 @@
+<div class="container" *ngIf="assignmentTransmis" >
+  <div class="navBtn" >
+    <a routerLink="/home" class="ajouterBtn">
+      <button mat-stroked-button color="primary" >Retour à la liste</button>
+    </a>
+    <button mat-stroked-button color="warn"  (click)="onDelete()" *ngIf="isAdmin">SUPPRIMER</button>
+    
+  </div>
+    <h1>Details Assignment</h1>
+  <br>
+  <form class="form">
+     <mat-form-field >
+      <mat-label>Nom devoir</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="{{assignmentTransmis.nom}}" readonly>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date de rendu</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="{{assignmentTransmis.dateDeRendu | date}}" readonly>
+    </mat-form-field>
+    <mat-form-field  *ngIf="isAdmin && !assignmentTransmis.rendu">
+        <mat-label>Note</mat-label>
+        <select matNativeControl [(ngModel)]="note" name="note">
+          <option *ngFor="let a of arrayNumbers" value="{{a}}">{{a}}</option>
+        </select>
+    </mat-form-field>
+    <div *ngIf="isAdmin && !assignmentTransmis.rendu">
+      <mat-form-field class="example-full-width" >
+        <mat-label>Remarque</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="remarque" name="remarque"></textarea>
+      </mat-form-field>
+
+    </div>
+    <mat-form-field  *ngIf="(isAdmin && assignmentTransmis.rendu)||(!isAdmin)">
+      <mat-label>Note</mat-label>
+      <select matNativeControl>
+        <option readonly>{{assignmentTransmis.note}}</option>
+      </select>
+    </mat-form-field>
+    <div *ngIf="(isAdmin && assignmentTransmis.rendu)||(!isAdmin)">
+      <mat-form-field class="example-full-width" >
+        <mat-label>Remarque</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." value="{{assignmentTransmis.remarque}}" readonly></textarea>
+      </mat-form-field>
+
+    </div>
+    
+    <button mat-stroked-button color="primary" *ngIf="isAdmin && !assignmentTransmis.rendu" (click)="onClickEdit()">VALIDER</button>
+  </form>
+</div>
+
+ 

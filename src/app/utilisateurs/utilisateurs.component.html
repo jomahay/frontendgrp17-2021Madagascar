@@ -1,0 +1,65 @@
+<div class="container">
+    <a routerLink="/addUtilisateur" class="ajouterBtn" >
+        <button mat-flat-button color="primary">
+          Ajouter un utilisateur
+        </button>
+      </a>
+      <div class="pagination">
+        <button mat-raised-button color="primary" (click)="premierePage()">
+          Première
+        </button>
+        <button mat-raised-button color="primary" [disabled]="!hasPrevPage" (click)="pagePrecedente()">
+          Prev
+        </button>
+        <button mat-raised-button color="primary" [disabled]="!hasNextPage" (click)="pageSuivante()">
+          Suiv
+        </button>
+        <button mat-raised-button color="primary" (click)="dernierePage()">
+          Dernière
+        </button>
+      </div>
+     
+      <table class="image-table">
+        
+        <caption>Liste des utilisateurs</caption>
+        <thead>
+          <tr>
+            <th scope="col">image utilisateur</th>
+            <th scope="col">Nom et Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let utilisateur of utilisateurs">
+              
+                <td data-label="image utilisateur">
+                    <div *ngIf="utilisateur.image!=null">
+                      <img  width="45%" src="https://backendgrp17mada.herokuapp.com/images/{{utilisateur.image}}"  >
+                    </div >
+                    <div *ngIf="utilisateur.image==null">
+                      <img  width="45%" src="https://backendgrp17mada.herokuapp.com/images/avatar.jpg"  >
+                    </div >
+                    
+                
+                 
+                </td>
+                <td data-label="Nom utilisateur">{{utilisateur.nom}} {{utilisateur.prenom}}</td>
+                <td  data-label="Role">{{utilisateur.email}}</td>
+                <td  data-label="Role">{{utilisateur.role}}</td>
+        
+        
+                <td data-label="Actions">
+                
+                 <a  routerLink="/utilisateur/{{utilisateur._id}}/edit"title="modifier utilisateur" mat-icon-button  aria-label="Modification">
+                  <mat-icon>update</mat-icon>
+                </a>
+                </td>
+              </tr>
+        </tbody></table>
+
+       
+
+</div>
+

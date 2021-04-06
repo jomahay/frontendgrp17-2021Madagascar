@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <nav *ngIf="isLogged">
+  <div class="sidebar">
+      <h2> {{titre}}</h2>
+     
+
+      <ul>
+       
+        <li><a > {{nom}} {{role}}</a></li>
+          <li *ngIf="isAdmin || isProf"><a  routerLink="/home"   > Acceuil</a></li>
+         
+          <li *ngIf="isEtudiant"><a routerLink="/add">Assignment</a></li>
+          
+          <li *ngIf="isAdmin" ><a routerLink="/utilisateur">Utilisateur</a></li>
+          <li  *ngIf="isAdmin"><a  routerLink="/matiere">Matiere</a></li>
+          <li >
+            <a mat-icon-button aria-label="Se déconnecter" (click)="logout()">Deconnexion</a>
+         
+          </li>
+         
+      </ul> 
+     
+  </div>
+</nav>
+  <div class="main_content">
+   
+    <router-outlet>
+    </router-outlet>
+    
+    <!--
+      <footer *ngIf="isLogged">
+      <mat-toolbar  class="footer">
+       <p class="footerTexte" >Jonatana & Miora MBDS Madagascar 2020-2021</p>
+      </mat-toolbar> 
+    </footer>
+    -->
+  </div>
+
+  
+</div>

@@ -1,0 +1,12 @@
+.principal{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.login-form{
+    padding: 20px;
+}
+
+mat-card{
+    margin-left: -200px;
+    margin-top:100px;
+}

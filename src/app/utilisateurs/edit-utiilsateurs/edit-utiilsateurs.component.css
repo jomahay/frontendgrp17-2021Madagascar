@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top:50px;
+  }
+  .form {
+    display:flex;
+    flex-direction: column;
+    margin:5px;
+    width: 500px;
+    padding-left:250px;
+  }

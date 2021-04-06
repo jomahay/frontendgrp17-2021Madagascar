@@ -1,0 +1,62 @@
+<div class="container">
+
+  <a *ngIf="isAdmin || isProf" routerLink="/add" class="ajouterBtn">
+    <button mat-flat-button color="primary">
+      Ajouter un assignment
+    </button>
+  </a>
+  <div>
+    <h1>Liste des assignments </h1>
+  </div>
+  <nav *ngIf="totalDocs>10">
+    <button mat-raised-button color="primary" (click)="premierePage()">
+      Première
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!hasPrevPage" (click)="pagePrecedente()">
+      Prev
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!hasNextPage" (click)="pageSuivante()">
+      Suiv
+    </button>
+    <button mat-raised-button color="primary" (click)="dernierePage()">
+      Dernière
+    </button>
+  </nav>
+      <mat-tab-group [selectedIndex]="selected.value"
+      (selectedIndexChange)="selected.setValue($event)" (selectedTabChange)="tabClick($event)">
+        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+      <!--<cdk-virtual-scroll-viewport #scroller itemSize="50" class="example-viewport" class="example-viewport">-->
+          <div class="wrapper-grid"  *ngFor="let a of assignments">
+
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div *ngIf="a.prof.image!=null" mat-card-avatar class="example-header-image" style=" background-image: url('https://backendgrp17mada.herokuapp.com/images/{{a.prof[0].image}}');">
+                  
+                </div>
+                <div *ngIf="a.prof.image==null" mat-card-avatar class="example-header-image" style=" background-image: url('https://backendgrp17mada.herokuapp.com/images/avatar.jpg');">
+                
+                </div>
+                  <mat-card-title><a routerLink="/assignments/{{a._id}}">{{a.nom}}</a></mat-card-title> 
+                  <mat-card-subtitle>{{a.dateDeRendu}}</mat-card-subtitle>   
+              </mat-card-header>
+              <img  mat-card-image src="https://backendgrp17mada.herokuapp.com/images/">
+              <mat-card-content>
+                <p>
+                  Nom de l'éleve : {{a.eleve[0].nom}}
+                </p>
+                <p>
+                  Prenom de l'éleve : {{a.eleve[0].prenom}} 
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        <!-- </cdk-virtual-scroll-viewport>-->
+         
+        </mat-tab>
+      </mat-tab-group>
+         
+</div>

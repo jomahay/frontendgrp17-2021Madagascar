@@ -1,0 +1,20 @@
+
+<div >
+<div fxLayoutAlign="center"  class="principal">
+  <mat-card fxFlex="40">
+    <mat-toolbar color="primary">Page de login</mat-toolbar>
+    <form  fxLayoutAlign="stretch" fxLayout="column" class="login-form" (ngSubmit)="login()" [formGroup]="formGroup">
+      <mat-form-field>
+        <input matInput placeholder="email" formControlName="email" name="email"
+        type="email" required>
+        <mat-error>{{getErrorEmail()}}</mat-error>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput type="password"  name="motDePasse" placeholder="mot de passe" formControlName="motDePasse" required>
+        <mat-error>Mot de passe obligatoire</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit">Login</button>
+    </form>
+  </mat-card>
+</div>
+</div>
