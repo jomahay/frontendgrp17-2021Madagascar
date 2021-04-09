@@ -1,27 +1,61 @@
-# AssignmentApp
+# projetAssignmentAppMBDSmadagascar2021grp17 Assignment app 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+## Informations générales 
 
-## Development server
+Ceci est un projet de gestion d 'assignment.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ ## Démarrage et fonctionnement du projet dans un autre ordinateur 
 
-## Code scaffolding
+Après avoir télécharger le projet,ouvrez : 
+1- ouvrez ce dossier pour le front et faites npm install , 
+puis faites ng serve 
+2- le dossier api pour le back et faites aussi npm install , 
+puis faites node server.js 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Auteur L'application a été conçue par le groupe 17 composé de:
 
-## Build
+ . ANDRIANARIVO Henintsoa Jonatana n°07
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ . RANOMENJANAHARY Miora Gabrielle n°46 
 
-## Running unit tests
+## Fonctionnalités
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ Les fonctionnalités sont: .Login avec Auhentification JWT .
 
-## Running end-to-end tests
+Gestion des roles : Administrateur, professeur et étudiant .
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Gestion des utilisateurs : L'administrateur seul peut : 
 
-## Further help
+-Ajouter un nouvel utilisateur ( ajout d'un nouveau professeur et d'un nouveau étudiant) 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-Modifier un utilisateur :nom , prenom , role -Lire tous les utilisateurs
+
+ .Gestion des matières: L'administrateur seul peut :
+
+ -Ajouter une matière ( associé le professeur responsable de la matière)
+
+ -Modifier une matière : nom de la matière , le professeur , et l'image correspondant à une matière 
+
+-Lire toutes les matières .
+
+Gestion des assignments:
+
+ -Lire les assignments rendus et non rendus 
+
+-Donner des notes et remarques pour les assignments (L'administrateur seul peut donner des notes et remarques) 
+
+-Supprimer un assignment 
+
+-Ajouter un assignment(l'administrateur, le professeur, et l'étudiant peuvent ajouter un assignment ) 
+
+## Lien du site : https://frontendgrp17madagascar2021.herokuapp.com/ 
+
+### compte utilisateur:
+
+ #### Administrateur : email: ratah@gmail.com / mdp: ratah 
+
+#### Professeur : email : toto@tooo.com / mdp : Mazoto 
+
+## Les documentations et tutoriels suivis dans ce projet ### JWT et login : https://www.loginradius.com/blog/async/Nodejs-and-MongoDb-application-authentication-by-JWT/ https://etienner.github.io/api-json-web-token-authentication-jwt-sur-express-js/ https://www.youtube.com/watch?v=Tn6MfKdfmg4&list=PLBpijX9DhBeCJrPEZm_C1xwRYHQscxjUj&index=3
+
+ ### affichages : https://github.com/angular/flex-layout https://codepen.io/RajRajeshDn/pen/LKzZNe https://material.angular.io/components/tabs/overview https://material.angular.io/components/stepper/overview
