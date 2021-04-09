@@ -1,4 +1,4 @@
-# projetAssignmentAppMBDSmadagascar2021grp17
+# frontendgrp17-2021Madagascar
 
 Assignment app
 
